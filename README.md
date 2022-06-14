@@ -6,11 +6,6 @@ This project can run:
 
 - iOS/Android Native Apps
 - iOS/Android Hybrid Apps
-- Android Chrome and iOS Safari browser ([check here](./README.md#automating-chrome-or-safari))
-
-> This boilerplate uses the WebdriverIO native demo app which can be found [here](https://github.com/webdriverio/native-demo-app).
-> **Note:**
-> This boilerplate only handles local execution on 1 em/simulator at a time, not parallel execution. For more info about that Google on setting up a grid with Appium.
 
 ## Based on
 

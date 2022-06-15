@@ -27,7 +27,7 @@ config.services = ['browserstack'];
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [
     {
-        "appium:app": process.env.BROWSERSTACK_IOS_APP_ID || 'bs://7556cbbcae1b8633df6d181499586b8b7fa4bb4d',
+        "appium:app": process.env.BROWSERSTACK_IOS_APP_ID || 'UBS_Neo_App_iOS',
         "appium:deviceName": "iPhone 13 Pro Max",
         "platformName": "ios",
         "platformVersion": "15",

@@ -13,11 +13,10 @@
             "webdriverio/async",
             "@wdio/mocha-framework",
             "expect-webdriverio",
-            "@wdio/sauce-service",
         ]
     },
     "include": [
-        "./config/**/*.ts",
+        "config/**/*.ts",
         "./tests/**/*.ts"
     ]
 }

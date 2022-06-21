@@ -10,7 +10,9 @@
         "research-android-online": "wdio ./config/research-app/android/wdio.browserstack.online.conf.ts",
         "research-android-offline": "wdio ./config/research-app/android/wdio.browserstack.offline.conf.ts",
         "research-ios-online": "wdio ./config/research-app/ios/wdio.browserstack.online.conf.ts",
-        "research-ios-offline": "wdio ./config/research -app/ios/wdio.browserstack.offline.conf.ts"
+        "research-ios-offline": "wdio ./config/research -app/ios/wdio.browserstack.offline.conf.ts",
+        "pTest": "wdio ./config/android/android.online.parallel.conf.js",
+        "pTest2": "wdio ./config/android/android.offline.parallel.conf.js"
     },
     "repository": {
         "type": "git",

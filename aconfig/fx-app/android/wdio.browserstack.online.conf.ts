@@ -4,8 +4,8 @@ import { config } from '../../wdio.shared.conf';
 // Specs
 // ============
 config.specs = [
-    './tests/specs/android/*.ts',
-    // './tests/specs/doSearch.ts'
+    //'./tests/specs/android/*.ts',
+     './tests/specs/utils/doSearch.ts'
 ];
 config.exclude = [
     // Exclude this one because the test can only be executed on emulators/simulators
@@ -25,10 +25,9 @@ config.services = ['browserstack'];
 // ============
 // Capabilities
 // ============
-// For all capabilities please check
-// http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
+
 config.capabilities = [
-    {    
+    {
         "appium:app": process.env.BROWSERSTACK_ANDROID_APP_ID || 'UBS_Neo_App',
         "appium:deviceName": "Samsung Galaxy S22 Ultra",
         "platformName": "android",
@@ -38,13 +37,13 @@ config.capabilities = [
             debug: true,
 
             // Set other BrowserStack capabilities
-            projectName: 'ubs-app-foundation-test',
-            buildName: 'android',
-            sessionName: 'fx-app-tests-test',
+            projectName: 'ubs-app-foundation-test-2',
+            buildName: 'android-2',
+            sessionName: 'fx-app-tests-test-2',
             appiumVersion : "1.22.0",
             realMobile: true
-        }   
-    },
+        }
+    }
 ];
 
 exports.config = config;

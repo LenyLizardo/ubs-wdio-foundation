@@ -96,4 +96,4 @@ tests/.retry_succeeded
 *.tsbuildinfo
 website/docs/Contribute.md
 website/community/Resources.md
-tests/specs/utils/doSearch.ts
+tests/specs/utils

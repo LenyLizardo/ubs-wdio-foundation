@@ -1,6 +1,10 @@
-const Login = require('../../tests/pageobjects/Login');
+const { Browser } = require('selenium-webdriver');
+const Login = require('../../../tests/pageobjects/Login');
 
 exports.config = {
+  // Your BrowserStack username and access key. We use environment variables to make sure that the code is common for all users.
+  // For more information on Environment variables see https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html
+  // An example of setting the below variables is in the README.md file.
   user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
   key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
   appUser: process.env.APP_USERNAME || '',
@@ -8,30 +12,33 @@ exports.config = {
   appPin: process.env.APP_PIN || '',
 
   updateJob: false,
+  // The tests that you want to run will be specified here
   specs: [
-    './tests/specs/utils/doSearch.ts'
+    './tests/specs/research-app/android/*.ts'
   ],
-  exclude: [],
+  exclude: [
+    './tests/specs/research-app/android/test2.ts'
+  ],
 
   maxInstances: 10,
+  // The common capabilities that will be used on all devices specified
   commonCapabilities: {
     "appium:app": process.env.BROWSERSTACK_ANDROID_APP_ID || 'UBS_Neo_App',
     "platformName": "android",
 
     // Set your BrowserStack config
     "bstack:options": { 
-        debug: true,
-
         // Set other BrowserStack capabilities
-        projectName: 'ubs-app-foundation-test',
-        buildName: 'ubs-android-tests',
-        sessionName: 'fx-app-tests-test',
+        projectName: 'ubs-app-foundation-test-2',
+        buildName: 'ubs-android-tests-2',
+        sessionName: /**(require('minimist')(process.argv.slice(2)))['bstack-session-name'] ||*/ 'fx-app-tests-test-2',
         appiumVersion : "1.22.0",
+        debug: true,
         realMobile: true
     }
   },
 
-  //
+  // Device capabilities for parallel runs
   capabilities: [{
     "appium:deviceName": 'Samsung Galaxy S22 Ultra',
     "appium:os_version": "12.0"
@@ -59,12 +66,7 @@ exports.config = {
     ui: 'bdd',
     timeout: 20000
   },
-
-  before: function () {
-    var login = require('../../tests/pageobjects/Login');
-    login.loginAsOnline();
-  },
-
+  
   /**
    * Perform any logic that is needed before a test is run.
    * @param {*} test 
@@ -74,6 +76,20 @@ exports.config = {
     console.log('----------------------------------------------')
     console.log('Starting the test');
     console.log('----------------------------------------------')
+  },
+
+  /**
+   * Runs after each test and will be used primarily to mark tests as Passed or Failed on the BrowserStack dashboard.
+   * @param {*} test 
+   * @param {*} context 
+   * @param {*} param2 
+   */
+  afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    if(passed) {
+      browser.execute('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "All tests have passed"}}');
+    } else {
+      browser.execute('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least one of the tests did not pass"}}');
+    }
   },
    
   /**

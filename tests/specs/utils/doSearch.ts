@@ -1,15 +1,9 @@
-import Login from '../../pageobjects/Login';
 import Search from '../../pageobjects/Search';
 
 describe('Search Wikipedia Functionality', () => {
-  it('can find search results', async () => {
-
-    //await Login.loginOnline('','');
-
+  it('performs a successful search', async () => {
     await Search.clickSearchBar();
+    //await Search.performSearch("BrowserStack");
     
-    await Search.performSearch("BrowserStack");
-    //var allProductsName = await $$(`android.widget.TextView`);
-    //assert(allProductsName.length > 0);
   });
 });

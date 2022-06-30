@@ -11,13 +11,13 @@ exports.config = {
   updateJob: false,
   // The tests that you want to run will be specified here
   specs: [
-    './tests/specs/android/*.ts',
+    './tests/specs/fx-app/android/*.ts',
   ],
 
   exclude: [
-      // Exclude this one because the test can only be executed on emulators/simulators
-      './tests/specs/android/test2.js',
-      './tests/specs/android/test6.js'
+    // Exclude this one because the test can only be executed on emulators/simulators
+    './tests/specs/fx-app/android/test2.js',
+    './tests/specs/fx-app/android/test6.js'
   ],
 
   maxInstances: 10,

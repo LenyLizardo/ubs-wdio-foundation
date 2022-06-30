@@ -53,7 +53,7 @@ npm run <insert script name>
 
 This foundation project uses a specific config for iOS and Android and the app you want to run, see the [configs](./config) folder for the full list.
 
-Since we are running on BrowserStack, we do not need any local instance of Appium installed, we just specify the latest version in our BS capabilities using the `appiumVersion` capability. A local install of Appium can be useful for accurate debugging and finding the right locators.
+Since we are running on BrowserStack, we do not need any local instance of Appium installed, we just specify the latest version in our BS capabilities using the `appiumVersion` capability. A local install of Appium can be useful for accurate debugging and finding the right locators however.
 
 ## Environment Variables
 
@@ -72,13 +72,13 @@ For more information on how to set up environment variables see this link: https
 
 This project utilises the Page Object Model to reduce the amount of duplicated code across the project. See this link for documentation on the Page Object Model in WebDriverIO.
 
-Basically if we are performing the same action more than once, it is best practice to turn that logic into a page object. So in the case of this project, things like [Login](./tests/pageobjects/Login.ts), [Search For Address](./tests/pageobjects/Search.ts), [Notifications testing](./tests/pageobjects/Notifications.ts), [Order Details](./tests/pageobjects/Orders.ts); will all be happening more than once so have been turned into Page Objects.
+Basically if we are performing the same action more than once, it is best practice to turn that logic into a page object. So in the case of this project, things like [Login](./tests/pageobjects/Login.ts), [Search](./tests/pageobjects/Search.ts), [Alerts](./tests/pageobjects/Alerts.ts), [Orders](./tests/pageobjects/Orders.ts); will all be happening more than once so have been turned into Page Objects.
 
 Each page object class file has a number of methods to perform the logic as well as "get" methods that will return the selector for that property. For example "getSearchSelector" will return the selector value for a Search bar that we can then enter text into.
 
 ## Specs
 
-The specs (or test) files are where the logical flow of the tests will be stored. At the moment, they are separated into 2 buckets for [Android](./tests/specs/android) and [iOS](./tests/specs/ios). This is because in some cases, the selectors can be different between App versions. If the App was designed with a uniform design and the selectors are not different then we can streamline the code even more by just having one set of test files and running those on both sets of devices.
+The specs (or test) files are where the logical flow of the tests will be stored. At the moment, they are separated into 2 buckets for [Android](./tests/specs/fx-app/android)and [iOS](./tests/specs/fx-app/ios). This is because in some cases, the selectors can be different between App versions. If the App was designed with a uniform design and the selectors are not different then we can streamline the code even more by just having one set of test files and running those on both sets of devices by merging the capabilities into one.
 
 The spec files will import the Page Objects that are needed for that specific test. For example, if our spec file is testing the Order Details, then we will need to import the [Orders](./tests/pageobjects/Orders.ts) object.
 

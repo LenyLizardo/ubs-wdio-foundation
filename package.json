@@ -4,7 +4,7 @@
     "description": "Base project to showcase the way automation should be run for UBS mobile team",
     "scripts": {
         "fx-android-online": "wdio ./config/fx-app/android/android.online.parallel.conf.js",
-        "fx-android-offline": "wdio ./config/fx-app/android/android.offline.parallel.conf.js",
+        "fx-android-offline": "wdio ./config/fx-app/android/android.offline.parallel.conf.ts",
         "fx-ios-online": "wdio ./config/fx-app/ios/ios.online.parallel.conf.js",
         "fx-ios-offline": "wdio ./config/fx-app/ios/ios.offline.parallel.conf.js",
         "research-android-online": "wdio ./config/research-app/android/android.online.parallel.conf.js",

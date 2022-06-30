@@ -11,41 +11,46 @@ exports.config = {
   updateJob: false,
   // The tests that you want to run will be specified here
   specs: [
-    './tests/specs/research-app/ios/test2.ts'
+    './tests/specs/research-app/android/test2.ts'
   ],
   exclude: [
-    './tests/specs/research-app/ios/test1.ts',
-    './tests/specs/research-app/ios/test3.ts'
+    './tests/specs/research-app/android/test1.ts',
+    './tests/specs/research-app/android/test3.ts'
   ],
 
   maxInstances: 10,
   // The common capabilities that will be used on all devices specified
   commonCapabilities: {
-    "appium:app": process.env.BROWSERSTACK_IOS_APP_ID || 'UBS_Neo_App_iOS',
-    "platformName": "ios",
+    "appium:app": process.env.BROWSERSTACK_ANDROID_APP_ID || 'UBS_Neo_App',
+    "platformName": "android",
 
     // Set your BrowserStack config
     "bstack:options": { 
         // Set other BrowserStack capabilities
         projectName: 'ubs-app-foundation-test',
-        buildName: 'ubs-ios-tests',
+        buildName: 'ubs-android-tests',
         sessionName: 'fx-app-tests-test',
         appiumVersion : "1.22.0",
-        networkProfile: 'no-network',
+        // The networkProfile capability will set the phone to airplane mode for the offline tests. (Currently not supported on Galaaxy S22 Ultra)
+        networkProfile: 'airplane-mode',
         debug: true,
         realMobile: true
     }
   },
+
   // Device capabilities for parallel runs
   capabilities: [{
-    "appium:deviceName": 'iPhone 12',
-    "appium:os_version": "14.0"
+    "appium:deviceName": 'Samsung Galaxy S22 Ultra',
+    "appium:os_version": "12.0"
   }, {
-    "appium:deviceName": 'iPhone 13',
-    "appium:os_version": "15.0"
+    "appium:deviceName": 'Samsung Galaxy S22',
+    "appium:os_version": "12.0"
   }, {
-    "appium:deviceName": 'iPhone XR',
-    "appium:os_version": "15.0"
+    "appium:deviceName": 'Samsung Galaxy S10',
+    "appium:os_version": "9.0"
+  }, {
+    "appium:deviceName": 'P30',
+    "appium:os_version": "9.0"
   }],
 
   logLevel: 'info',
@@ -67,7 +72,7 @@ exports.config = {
    * @param {*} test 
    * @param {*} context 
    */
-     beforeTest: function (test, context) {
+     beforeTest: function (test: any, context: any) {
       console.log('----------------------------------------------')
       console.log('Starting the test');
       console.log('----------------------------------------------')
@@ -79,7 +84,7 @@ exports.config = {
      * @param {*} context 
      * @param {*} param2 
      */
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: function(test: any, context: any, { error, result, duration, passed, retries }: any) {
       if(passed) {
         browser.execute('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "All tests have passed"}}');
       } else {
@@ -94,7 +99,7 @@ exports.config = {
      * @param {*} capabilities 
      * @param {*} results 
      */
-    onComplete: function (exitCode, config, capabilities, results) {
+    onComplete: function (exitCode: any, config: any, capabilities: any, results: any) {
       console.log('----------------------------------------------')
       console.log('Test is complete')
       console.log('----------------------------------------------')
@@ -102,6 +107,6 @@ exports.config = {
 };
 
 // Code to support common capabilities
-exports.config.capabilities.forEach(function(caps){
+exports.config.capabilities.forEach(function(caps: { [x: string]: any; }){
   for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });

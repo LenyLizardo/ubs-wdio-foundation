@@ -72,7 +72,7 @@ exports.config = {
    * @param {*} test 
    * @param {*} context 
    */
-  beforeTest: function (test, context) {
+  beforeTest: function (test: any, context: any) {
     console.log('----------------------------------------------')
     console.log('Starting the test');
     console.log('----------------------------------------------')
@@ -84,7 +84,7 @@ exports.config = {
    * @param {*} context 
    * @param {*} param2 
    */
-  afterTest: function(test, context, { error, result, duration, passed, retries }) {
+  afterTest: function(test: any, context: any, { error, result, duration, passed, retries }: any) {
     if(passed) {
       browser.execute('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "All tests have passed"}}');
     } else {
@@ -99,7 +99,7 @@ exports.config = {
    * @param {*} capabilities 
    * @param {*} results 
    */
-  onComplete: function (exitCode, config, capabilities, results) {
+  onComplete: function (exitCode: any, config: any, capabilities: any, results: any) {
     console.log('----------------------------------------------')
     console.log('Test is complete')
     console.log('----------------------------------------------')
@@ -107,6 +107,6 @@ exports.config = {
 };
 
 // Code to support common capabilities - wil merge common capabilities with device capabilities into an array that will run in parallel
-exports.config.capabilities.forEach(function (caps) {
+exports.config.capabilities.forEach(function (caps: { [x: string]: any; }) {
   for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });

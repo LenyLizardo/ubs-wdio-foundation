@@ -5,12 +5,12 @@
     "scripts": {
         "fx-android-online": "wdio ./config/fx-app/android/android.online.parallel.conf.js",
         "fx-android-offline": "wdio ./config/fx-app/android/android.offline.parallel.conf.ts",
-        "fx-ios-online": "wdio ./config/fx-app/ios/ios.online.parallel.conf.js",
-        "fx-ios-offline": "wdio ./config/fx-app/ios/ios.offline.parallel.conf.js",
-        "research-android-online": "wdio ./config/research-app/android/android.online.parallel.conf.js",
-        "research-android-offline": "wdio ./config/research-app/android/android.offline.parallel.conf.js",
-        "research-ios-online": "wdio ./config/research-app/ios/ios.online.parallel.conf.js",
-        "research-ios-offline": "wdio ./config/research-app/ios/ios.offline.parallel.conf.js"
+        "fx-ios-online": "wdio ./config/fx-app/ios/ios.online.parallel.conf.ts",
+        "fx-ios-offline": "wdio ./config/fx-app/ios/ios.offline.parallel.conf.ts",
+        "research-android-online": "wdio ./config/research-app/android/android.online.parallel.conf.ts",
+        "research-android-offline": "wdio ./config/research-app/android/android.offline.parallel.conf.ts",
+        "research-ios-online": "wdio ./config/research-app/ios/ios.online.parallel.conf.ts",
+        "research-ios-offline": "wdio ./config/research-app/ios/ios.offline.parallel.conf.ts"
     },
     "repository": {
         "type": "git",

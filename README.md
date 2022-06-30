@@ -9,7 +9,7 @@
 
 This project can run:
 
-- iOS/Android Native Apps
+- iOS/Android Native Apps 
 - iOS/Android Hybrid Apps
 
 ## Based on

@@ -3,14 +3,15 @@
     "version": "1.0.0",
     "description": "Base project to showcase the way automation should be run for UBS mobile team",
     "scripts": {
-        "fx-android-online": "wdio ./config/fx-app/android/android.online.parallel.conf.js",
+        "fx-android-online": "wdio ./config/fx-app/android/android.online.parallel.conf.ts",
         "fx-android-offline": "wdio ./config/fx-app/android/android.offline.parallel.conf.ts",
         "fx-ios-online": "wdio ./config/fx-app/ios/ios.online.parallel.conf.ts",
         "fx-ios-offline": "wdio ./config/fx-app/ios/ios.offline.parallel.conf.ts",
         "research-android-online": "wdio ./config/research-app/android/android.online.parallel.conf.ts",
         "research-android-offline": "wdio ./config/research-app/android/android.offline.parallel.conf.ts",
         "research-ios-online": "wdio ./config/research-app/ios/ios.online.parallel.conf.ts",
-        "research-ios-offline": "wdio ./config/research-app/ios/ios.offline.parallel.conf.ts"
+        "research-ios-offline": "wdio ./config/research-app/ios/ios.offline.parallel.conf.ts",
+        "run-all": "npm run fx-android-online & npm run fx-android-offline & npm run fx-ios-online & npm run fx-ios-offline & npm run research-android-online & npm run research-android-offline & npm run research-ios-online & npm run research-ios-offline"
     },
     "repository": {
         "type": "git",

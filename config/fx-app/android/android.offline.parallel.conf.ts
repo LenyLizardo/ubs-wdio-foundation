@@ -16,10 +16,10 @@ exports.config = {
   ],
   exclude: [
     // Exclude these tests from execution
-    './tests/specs/fx-app/android/test1.js',
-    './tests/specs/fx-app/android/test3.js',
-    './tests/specs/fx-app/android/test4.js',
-    './tests/specs/fx-app/android/test5.js',
+    './tests/specs/fx-app/android/test1.ts',
+    './tests/specs/fx-app/android/test3.ts',
+    './tests/specs/fx-app/android/test4.ts',
+    './tests/specs/fx-app/android/test5.ts',
 ],
 
   maxInstances: 10,

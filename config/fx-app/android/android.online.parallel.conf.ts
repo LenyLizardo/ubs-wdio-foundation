@@ -16,8 +16,8 @@ exports.config = {
 
   exclude: [
     // Exclude this one because the test can only be executed on emulators/simulators
-    './tests/specs/fx-app/android/test2.js',
-    './tests/specs/fx-app/android/test6.js'
+    './tests/specs/fx-app/android/test2.ts',
+    './tests/specs/fx-app/android/test6.ts'
   ],
 
   maxInstances: 10,

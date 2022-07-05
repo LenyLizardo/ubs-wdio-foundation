@@ -1,5 +1,6 @@
-import Login from '../../pageobjects/Login';
-import PriceDetails from '../../pageobjects/PriceDetails';
+import Login from '../../../pageobjects/Login';
+import PriceDetails from '../../../pageobjects/PriceDetails';
+
 
 let username = process.env.APP_USERNAME || '';
 let password = process.env.APP_PASSWORD || '';

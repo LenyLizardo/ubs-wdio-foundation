@@ -4,7 +4,7 @@ class PriceDetails {
     }
 
     async openPriceDetailsPage () {
-        
+       await (await this.priceGridSelector).waitForDisplayed({timeout: 30000});
     }
 
     async changePriceGridWorkspace () {
@@ -27,7 +27,7 @@ class PriceDetails {
 
     }
 
-    get priceGridSelector () { return $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")') };
+    get priceGridSelector () { return $('android=new UiSelector().resourceId("Switch_Preset")') };
     get creditCardNumber () { return $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")') };
     get creditCardName () { return $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")') };
     get creditCardMonth () { return $('android=new UiSelector().resourceId("org.wikipedia.alpha:id/search_src_text")') };

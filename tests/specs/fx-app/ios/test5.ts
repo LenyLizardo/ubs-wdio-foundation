@@ -1,5 +1,5 @@
-import Login from '../../pageobjects/Login';
-import Insights from '../../pageobjects/Insights';
+import Login from '../../../pageobjects/Login';
+import Insights from '../../../pageobjects/Insights';
 
 let username = process.env.APP_USERNAME || '';
 let password = process.env.APP_PASSWORD || '';

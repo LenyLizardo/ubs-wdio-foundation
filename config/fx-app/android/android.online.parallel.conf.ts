@@ -1,3 +1,6 @@
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') })
+
 exports.config = {
   // Your BrowserStack username and access key. We use environment variables to make sure that the code is common for all users.
   // For more information on Environment variables see https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html
@@ -20,10 +23,10 @@ exports.config = {
     './tests/specs/fx-app/android/test6.ts'
   ],
 
-  maxInstances: 10,
+  maxInstances: 1,
   // The common capabilities that will be used on all devices specified
   commonCapabilities: {
-    "appium:app": process.env.BROWSERSTACK_ANDROID_APP_ID || 'UBS_Neo_App',
+    "appium:app": process.env.BROWSERSTACK_ANDROID_APP_ID || 'Android App ID is missing',//'UBS_Neo_App',
     "platformName": "android",
 
     // Set your BrowserStack config
@@ -53,7 +56,7 @@ exports.config = {
     "appium:os_version": "9.0"
   }],
 
-  logLevel: 'info',
+  logLevel: 'debug',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',

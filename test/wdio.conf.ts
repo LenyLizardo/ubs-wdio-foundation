@@ -1,5 +1,7 @@
 import type { Options } from '@wdio/types'
 
+// const Options = require('@wdio/types')
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -80,7 +82,8 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './tests/specs/**/**/*.ts'
+       // './tests/specs/**/**/*.ts'
+       './tests/specs/fx-app/ios/test1.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -129,7 +132,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'debug',
     //
     // Set specific log levels per logger
     // loggers:

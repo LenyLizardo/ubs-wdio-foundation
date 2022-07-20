@@ -14,7 +14,8 @@ exports.config = {
   updateJob: false,
   // The tests that you want to run will be specified here
   specs: [
-    './tests/specs/fx-app/android/*.ts',
+    './tests/specs/fx-app/android/test1.ts',
+    //'./tests/specs/fx-app/android/*.ts',
   ],
 
   exclude: [
@@ -43,9 +44,9 @@ exports.config = {
 
   // Device capabilities for parallel runs
   capabilities: [{
-    "appium:deviceName": 'Samsung Galaxy S22 Ultra',
+    "appium:deviceName": 'Google Pixel 6',
     "appium:os_version": "12.0"
-  }, {
+  /*}, {
     "appium:deviceName": 'Samsung Galaxy S22',
     "appium:os_version": "12.0"
   }, {
@@ -53,7 +54,7 @@ exports.config = {
     "appium:os_version": "9.0"
   }, {
     "appium:deviceName": 'Huawei P30',
-    "appium:os_version": "9.0"
+    "appium:os_version": "9.0"*/
   }],
 
   logLevel: 'debug',

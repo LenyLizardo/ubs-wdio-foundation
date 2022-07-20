@@ -1,5 +1,6 @@
-const path = require('path')
+/*const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') })
+*/
 
 exports.config = {
   // Your BrowserStack username and access key. We use environment variables to make sure that the code is common for all users.
@@ -14,16 +15,17 @@ exports.config = {
   updateJob: false,
   // The tests that you want to run will be specified here
   specs: [
-    './tests/specs/fx-app/ios/*.ts'
+    './tests/specs/fx-app/ios/test1.ts'
+    //'./tests/specs/fx-app/ios/*.ts'
   ],
   exclude: [
     './tests/specs/fx-app/ios/test2.ts'
   ],
 
-  maxInstances: 10,
+  maxInstances: 1,
   // The common capabilities that will be used on all devices specified
   commonCapabilities: {
-    "appium:app": process.env.BROWSERSTACK_IOS_APP_ID || 'iOS App ID is missing',//'bs://08cd667888d2f093b50014d303545129a89e6d30',//'UBS_Neo_App_iOS',
+    "appium:app": process.env.BROWSERSTACK_IOS_APP_ID || 'bs://08cd667888d2f093b50014d303545129a89e6d30',//'UBS_Neo_App_iOS',
     "platformName": "ios",
 
     // Set your BrowserStack config
@@ -42,13 +44,13 @@ exports.config = {
   capabilities: [{
     "appium:deviceName": 'iPhone 12',
     "appium:os_version": "14.0"
-  }, {
+  }/*, {
     "appium:deviceName": 'iPhone 13',
     "appium:os_version": "15.0"
   }, {
     "appium:deviceName": 'iPhone XR',
     "appium:os_version": "15.0"
-  }],
+  }*/],
 
   logLevel: 'info',
   coloredLogs: true,

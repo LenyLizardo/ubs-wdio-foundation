@@ -8,7 +8,7 @@ let articleSearchString = 'the article';
 
 describe('Search for Videos and Articles', () => {
   it('logs in successfully', async () => {
-    Login.loginOnline(username, password);
+    await Login.loginOnline(username, password);
   });
 
   it('should search for a Podcast and load it', async () => {

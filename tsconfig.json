@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "./.tsbuild/",
-        "sourceMap": false,
+        "sourceMap": true,
         "target": "es2019",
         "module": "commonjs",
         "removeComments": true,

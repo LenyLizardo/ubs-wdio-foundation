@@ -1,5 +1,5 @@
-import Login from '../../pageobjects/Login';
-import Orders from '../../pageobjects/Orders';
+import Login from '../../../pageobjects/Login';
+import Orders from '../../../pageobjects/Orders';
 
 let username = process.env.APP_USERNAME || '';
 let password = process.env.APP_PASSWORD || '';
@@ -8,7 +8,7 @@ let searchText = 'search term';
 
 describe('Open, filter and search orders for the past week', () => {
   it('logs in successfully', async () => {
-    Login.loginOnline(username, password);
+    await Login.loginOnline(username, password);
   });
 
   it('should open the Orders tab and filter for the past week', async () => {

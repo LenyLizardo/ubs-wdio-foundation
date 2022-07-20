@@ -1,4 +1,4 @@
-import Login from '../pageobjects/Login';
+import Login  from '../../pageobjects/Login';
 
 const username = process.env.APP_USERNAME || '';
 const password = process.env.APP_PASSWORD || '';

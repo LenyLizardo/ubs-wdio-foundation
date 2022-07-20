@@ -8,7 +8,7 @@ let podcastSearchString = 'a podcast';
 
 describe('Check the Insights Live Desk on iOS', () => {
   it('logs in successfully', async () => {
-    Login.loginOnline(username, password);
+    await Login.loginOnline(username, password);
   });
 
   it('should open the Insights Live Desk', async () => {

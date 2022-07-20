@@ -8,7 +8,7 @@ let articleSearchString = 'the article';
 
 describe('Check the Live Desk on Android', () => {
   it('logs in successfully', async () => {
-    Login.loginOnline(username, password);
+    await Login.loginOnline(username, password);
   });
 
   it('should open the Live Desk page', async () => {

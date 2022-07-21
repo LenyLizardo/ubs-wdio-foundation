@@ -37,34 +37,36 @@ class Login {
        await submitBtnSel.waitForDisplayed ({timeout: 30000});
        await submitBtnSel.click();  
       
-     /*  await driver.touchAction([
+       await driver.touchAction([
         {action: 'press', x: 152, y: 165},
         {action: 'moveTo', x: 139, y: 654},
         {action: 'release'},
-        {action: 'wait',ms: 1000}*/
+        {action: 'wait',ms: 1000}]);
     
       
 
        let passSel = await this.passwordSelector();
        await passSel.waitForDisplayed({timeout: 30000});
        await passSel.click();
-       
        await passSel.setValue (password);
-       await submitBtnSel.waitForDisplayed ({timeout: 30000});
-       await submitBtnSel.click();  
-       //await driver.refresh(); 
 
-       await driver.touchAction([
+       let submitBtnSelPwd = await this.submitButtonSelectPwd();
+       await submitBtnSelPwd.waitForDisplayed ({timeout: 30000});
+       await submitBtnSelPwd.click();  
+       
+
+     await driver.touchAction([
         {action: 'press', x: 152, y: 165},
         {action: 'moveTo', x: 139, y: 654},
         {action: 'release'},
         {action: 'wait',ms: 1000}
-      ]);
+      ]); 
 
 
-       let pinSel = await this.pinSelector();
-       await pinSel.waitForDisplayed({timeout: 3000});
-       await pinSel.click();
+
+      let pinSel = await this.pinSelector();
+      await pinSel.waitForDisplayed({timeout: 3000});
+      await pinSel.click();
        //await pinSel.setValue(pin);
        /* await this.passwordSelector.waitForDisplayed({ timeout: 30000 }); 
         await (await this.passwordSelector).click();
@@ -111,6 +113,7 @@ class Login {
     async usernameSelector () {return $(await driver.findElement('xpath','(//XCUIElementTypeOther[@name=\"UBS\"])[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[4]/XCUIElementTypeTextField'))};
     async passwordSelector () {return $(await driver.findElement('xpath','(//XCUIElementTypeOther[@name="UBS"])[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[6]/XCUIElementTypeSecureTextField'))};
     async submitButtonSelector () {return $(await driver.findElement('xpath','(//XCUIElementTypeButton[@name="Next"])[1]'))};
+    async submitButtonSelectPwd () {return $(await driver.findElement('xpath','(//XCUIElementTypeButton[@name="Next"])[1]'))};
     async pinSelector () {return $(await driver.findElement('xpath','(//XCUIElementTypeOther[@name="UBS"])[1]/XCUIElementTypeOther[4]/XCUIElementTypeOther[6]/XCUIElementTypeTextField'))};
 
      //get usernameSelector () { return $('android.widget.EditText') };

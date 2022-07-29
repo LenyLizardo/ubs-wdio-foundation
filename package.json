@@ -11,7 +11,9 @@
         "research-android-offline": "wdio ./config/research-app/android/android.offline.parallel.conf.ts",
         "research-ios-online": "wdio ./config/research-app/ios/ios.online.parallel.conf.ts",
         "research-ios-offline": "wdio ./config/research-app/ios/ios.offline.parallel.conf.ts",
-        "run-all": "npm run fx-android-online & npm run fx-android-offline & npm run fx-ios-online & npm run fx-ios-offline & npm run research-android-online & npm run research-android-offline & npm run research-ios-online & npm run research-ios-offline"
+        "run-all": "npm run fx-android-online & npm run fx-android-offline & npm run fx-ios-online & npm run fx-ios-offline & npm run research-android-online & npm run research-android-offline & npm run research-ios-online & npm run research-ios-offline",
+        "test": "wdio ./resources/conf/wdio-bstack-single.conf.ts",
+        "generate-report": "./node_modules/allure-commandline/bin/allure generate allure-results --clean && ./node_modules/allure-commandline/bin/allure open"
     },
     "repository": {
         "type": "git",
@@ -37,6 +39,7 @@
         "@types/chai": "^4.3.1",
         "@typescript-eslint/eslint-plugin": "^5.25.0",
         "@typescript-eslint/parser": "^5.25.0",
+        "@wdio/allure-reporter": "^7.20.3",
         "@wdio/appium-service": "^7.19.5",
         "@wdio/browserstack-service": "^7.19.7",
         "@wdio/cli": "^7.19.7",
@@ -44,7 +47,13 @@
         "@wdio/mocha-framework": "^7.19.7",
         "@wdio/spec-reporter": "^7.19.7",
         "eslint-plugin-wdio": "^7.19.4",
-        "ts-node": "^10.8.0",
-        "typescript": "^4.6.4"
+        "ts-node": "^10.8.2",
+        "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "@types/mocha": "^9.1.1",
+        "allure-commandline": "^2.18.1",
+        "chai": "^4.3.6",
+        "chai-as-promised": "^7.1.1"
     }
 }

@@ -11,11 +11,13 @@
         "types": [
             "node",
             "webdriverio/async",
+            "webdriverio/sync",
             "@wdio/mocha-framework",
             "expect-webdriverio",
         ]
     },
     "include": [
+        "resources/conf/*.ts",
         "config/**/*.ts",
         "./tests/**/*.ts"
     ]
